@@ -1,5 +1,6 @@
 -- The following query retrieves all bookings along with user details, property details, and payment information.
 -- It uses JOIN to combine data from the Booking, User, Property, and Payment tables.
+
 SELECT 
     b.booking_id,
     b.start_date,
@@ -18,6 +19,7 @@ SELECT
     py.payment_method
 FROM Booking AS b
 JOIN User AS u ON b.user_id = u.user_id
+AND u.role = 'guest' -- Assuming we want to filter by user role
 JOIN Property AS p ON b.property_id = p.property_id
 LEFT JOIN Payment AS py ON py.booking_id = b.booking_id;
 
