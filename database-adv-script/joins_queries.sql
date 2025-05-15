@@ -15,7 +15,7 @@ INNER JOIN User AS u ON b.user_id = u.user_id;
 -- Retrieve all properties and their reviews, including properties that have no reviews (LEFT JOIN)
 SELECT 
     p.property_id,
-    p.name,
+    p.name AS property_name,
     p.location,
     p.pricepernight,
     r.review_id,
